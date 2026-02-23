@@ -1,0 +1,22 @@
+{
+  "styles": [
+    "anime",
+    "oil_painting"
+  ],
+  "total_images_per_style": {
+    "anime": 550,
+    "oil_painting": 550
+  },
+  "structure": {
+    "anime": {
+      "train_original": "anime/train/images_original/",
+      "train_edited": "anime/train/images_edited/",
+      "metadata": "anime/metadata.jsonl"
+    },
+    "oil_painting": {
+      "train_original": "oil_painting/train/images_original/",
+      "train_edited": "oil_painting/train/images_edited/",
+      "metadata": "oil_painting/metadata.jsonl"
+    }
+  }
+}
