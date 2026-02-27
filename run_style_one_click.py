@@ -50,7 +50,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Sélectionne une image et applique ton modèle Instruct-Pix2Pix + LoRA"
     )
-    parser.add_argument("--style", choices=["anime", "oil_painting"], default="anime")
+    parser.add_argument("--style", choices=["anime", "oil_painting"], default="oil_painting")
     parser.add_argument("--instruction", default=None, help="Instruction personnalisée")
     parser.add_argument("--image", default=None, help="Chemin image (sinon fenêtre de sélection)")
     parser.add_argument("--lora-path", default=None, help="Override du chemin LoRA")
