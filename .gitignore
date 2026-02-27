@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environments
+.venv/
+venv/
+.env/
+
+# Jupyter / logs
+.ipynb_checkpoints/
+*.log
+
+# Training artifacts
+models/
+!models/.gitkeep
+!models/instructpix2pix-*-smoke/
+models/**/checkpoint-*/
+models/**/logs/
+
+# Local source clone
+diffusers/
+
+# Optional heavy clone (keep if you still train from local scripts)
+# diffusers/

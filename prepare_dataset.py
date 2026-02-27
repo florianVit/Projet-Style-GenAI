@@ -373,10 +373,10 @@ class DatasetPreparer:
                 ]
                 
                 metadata_entry = {
-                    "file_name": filename,
+                    "file_name": str(styled_path.relative_to(self.output_dir / style)),
                     "text": prompts[idx % len(prompts)],  # Varier les prompts
-                    "original": str(original_path.relative_to(self.output_dir)),
-                    "edited": str(styled_path.relative_to(self.output_dir))
+                    "original": str(original_path.relative_to(self.output_dir / style)),
+                    "edited": str(styled_path.relative_to(self.output_dir / style))
                 }
                 self.metadata_per_style[style].append(metadata_entry)
                 
