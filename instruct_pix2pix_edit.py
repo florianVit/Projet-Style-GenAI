@@ -23,6 +23,8 @@ from diffusers import StableDiffusionInstructPix2PixPipeline
 @dataclass
 class EditConfig:
     model_id: str = "timbrooks/instruct-pix2pix"
+    lora_path: str | None = None
+    lora_scale: float = 1.0
     guidance_scale: float = 7.5
     image_guidance_scale: float = 1.5
     num_inference_steps: int = 30
@@ -44,6 +46,10 @@ def load_pipeline(cfg: EditConfig) -> StableDiffusionInstructPix2PixPipeline:
         cfg.model_id,
         torch_dtype=dtype,
     )
+
+    if cfg.lora_path:
+        pipe.load_lora_weights(cfg.lora_path)
+        pipe.fuse_lora(lora_scale=cfg.lora_scale)
 
     # Optional: reduce memory on CPU/GPU
     pipe.enable_attention_slicing()
@@ -100,6 +106,22 @@ def compare_side_by_side(original: Image.Image, edited: Image.Image) -> Image.Im
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Instruct-Pix2Pix image editor")
+    parser.add_argument(
+        "--model-id",
+        default="timbrooks/instruct-pix2pix",
+        help="Base model ID/path (ex: timbrooks/instruct-pix2pix)",
+    )
+    parser.add_argument(
+        "--lora-path",
+        default=None,
+        help="Chemin vers un dossier/fichier LoRA (.safetensors)",
+    )
+    parser.add_argument(
+        "--lora-scale",
+        type=float,
+        default=1.0,
+        help="Intensité LoRA (0.0 à 1.5 en général)",
+    )
     parser.add_argument("--image", required=True, help="Path to the input image")
     parser.add_argument("--instruction", required=True, help="Edit instruction text")
     parser.add_argument("--output", default="outputs/edited.png", help="Output image path")
@@ -117,6 +139,9 @@ def main() -> None:
     args = parse_args()
 
     cfg = EditConfig(
+        model_id=args.model_id,
+        lora_path=args.lora_path,
+        lora_scale=args.lora_scale,
         guidance_scale=args.guidance_scale,
         image_guidance_scale=args.image_guidance_scale,
         num_inference_steps=args.steps,
