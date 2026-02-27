@@ -1,5 +1,5 @@
 # Projet IA Générative — Fine-tuning style (Anime + Oil Painting)
-
+Florian VITOUX - Mathéo STEPHAN
 ## Objectif du projet
 Ce projet sert à **appliquer un style graphique à une image** via IA, en fine-tunant un modèle Instruct-Pix2Pix avec **LoRA**.
 
