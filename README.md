@@ -136,6 +136,8 @@ python instruct_pix2pix_edit.py \
   --output outputs/anime_test_lora.png \
   --compare outputs/anime_test_compare.png
 ```
+> Exemple : <img width="1024" height="512" alt="compare_anime_images_20260227_024759" src="https://github.com/user-attachments/assets/5e21cb7c-2e67-4b40-8aa6-ea832ded092a" />
+
 
 ### Oil painting
 ```bash
@@ -151,3 +153,7 @@ python instruct_pix2pix_edit.py \
   --output outputs/oil_test_lora.png \
   --compare outputs/oil_test_compare.png
 ```
+
+> Exemple :<img width="1024" height="512" alt="compare_oil_painting_images_20260227_025653" src="https://github.com/user-attachments/assets/fe5e35c8-4290-40cd-8778-43f8061dfe4f" />
+
+
