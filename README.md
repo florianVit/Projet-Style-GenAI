@@ -1,5 +1,6 @@
 # Projet IA Générative — Fine-tuning style (Anime + Oil Painting)
-Florian VITOUX - Mathéo STEPHAN
+# Florian VITOUX - Mathéo STEPHAN
+
 ## Objectif du projet
 Ce projet sert à **appliquer un style graphique à une image** via IA, en fine-tunant un modèle Instruct-Pix2Pix avec **LoRA**.
 
@@ -96,17 +97,11 @@ python diffusers/examples/research_projects/instructpix2pix_lora/train_instruct_
 ---
 
 ## 4) Tester ton modèle (one-click)
-### Sans argument (anime par défaut)
+ 
 ```bash
 python run_style_one_click.py
 ```
-Puis sélectionne une image dans la fenêtre.
-
-### Forcer un style
-```bash
-python run_style_one_click.py --style anime
-python run_style_one_click.py --style oil_painting
-```
+Choix à faire dans le terminal puis sélectionne une image dans la fenêtre.
 
 ### Résultats
 Les images sont sauvegardées automatiquement dans `outputs/`:
